@@ -40,40 +40,19 @@
 <div class="bg-white rounded-2xl shadow-md p-6 mt-8">
   <h2 class="text-2xl font-bold mb-6">Comments</h2>
 
+
   <!-- Existing comments -->
-  <% if @article.comments.any? %>
-    <div class="space-y-4 mb-8">
-      <% @article.comments.each do |comment| %>
-        <div class="border-b pb-3">
-          <p class="font-semibold text-gray-800">
-            <%= comment.commenter %>
-          </p>
-          <p class="text-gray-700 mt-1">
-            <%= comment.body %>
-          </p>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-    <p class="text-gray-500 mb-8">No comments yet. Be the first to comment!</p>
-  <% end %>
+<% if @article.comments.any? %>
+  <div class="space-y-4 mb-8">
+    <%= render @article.comments %>
+  </div>
+<% else %>
+  <p class="text-gray-500 mb-8">No comments yet. Be the first to comment!</p>
+<% end %>
+
 
     <!-- Comment form -->
     <h3 class="text-xl font-semibold mb-2">Add a comment:</h3>
-    <%= form_with model: [ @article, @article.comments.build ], class: "space-y-4" do |form| %>
-      <div class="flex flex-col">
-        <%= form.label :commenter, class: "mb-1 font-semibold text-gray-800" %>
-        <%= form.text_field :commenter, class: "w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700" %>
-      </div>
-
-      <div class="flex flex-col">
-        <%= form.label :body, class: "mb-1 font-semibold text-gray-800" %>
-        <%= form.text_area :body, rows: 5, class: "w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700" %>
-      </div>
-
-      <div>
-        <%= form.submit "Post Comment", class: "bg-gray-900 text-white font-semibold px-4 py-2 rounded-lg hover:bg-gray-800 transition" %>
-      </div>
-    <% end %>
+    <%= render "comments/form", article: @article %>
   </div>
 </div>
