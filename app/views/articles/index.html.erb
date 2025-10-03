@@ -6,8 +6,7 @@
   <ul class="space-y-4">
     <% @articles.each do |article| %>
       <li class="p-4 bg-white rounded-lg shadow hover:shadow-md transition">
-        <a class="cursor-point" href="/articles/<%= article.id %>">
-        <%= article.title %>
+       <%= link_to article.title, article %>
       </li>
     <% end %>
   </ul>
