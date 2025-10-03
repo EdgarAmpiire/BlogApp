@@ -1,0 +1,40 @@
+<div class="w-7/12 mx-auto px-6 py-10">
+  <!-- Back arrow -->
+  <div class="mb-6">
+    <a href="<%= articles_path %>" class="text-gray-500 hover:text-gray-700 text-2xl">
+      ← Back to Articles
+    </a>
+  </div>
+
+  <!-- Form card -->
+  <div class="bg-white rounded-2xl shadow-md p-6">
+    <h1 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">
+      New Article
+    </h1>
+
+    <%= form_with model: @article, class: "space-y-6" do |form| %>
+      <!-- Title field -->
+      <div class="flex flex-col">
+        <%= form.label :title, class: "mb-2 font-semibold text-gray-800" %>
+        <%= form.text_field :title, class: "w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700" %>
+        <% @article.errors.full_messages_for(:title).each do |message| %>
+          <div class="text-red-600 mt-1 text-sm"><%= message %></div>
+        <% end %>
+      </div>
+
+      <!-- Body field -->
+      <div class="flex flex-col">
+        <%= form.label :body, class: "mb-2 font-semibold text-gray-800" %>
+        <%= form.text_area :body, rows: 10, class: "w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700" %>
+        <% @article.errors.full_messages_for(:body).each do |message| %>
+          <div class="text-red-600 mt-1 text-sm"><%= message %></div>
+        <% end %>
+      </div>
+
+      <!-- Submit button -->
+      <div>
+        <%= form.submit "Create Article", class: "bg-gray-900 text-white font-semibold px-6 py-3 rounded-lg hover:bg-gray-800 transition" %>
+      </div>
+    <% end %>
+  </div>
+</div>
