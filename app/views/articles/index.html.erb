@@ -1,14 +1,17 @@
-<div class="max-w-3xl mx-auto px-4 py-8">
+<div class="w-7/12 mx-auto px-6 py-10 bg-white rounded-2xl shadow-md">
   <h1 class="text-3xl font-bold text-gray-900 mb-6 border-b pb-2">
     Articles
   </h1>
 
   <ul class="space-y-4">
     <% @articles.each do |article| %>
-      <li class="p-4 bg-white rounded-lg shadow hover:shadow-md transition">
-        <%= article.title %>
+      <li>
+        <%= link_to article.title, article, class: "block p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition text-gray-900 font-semibold" %>
       </li>
     <% end %>
   </ul>
-</div>
 
+  <div class="mt-8">
+    <%= link_to "New Article", new_article_path, class: "inline-block bg-gray-900 text-white font-semibold px-6 py-3 rounded-lg hover:bg-gray-800 transition" %>
+  </div>
+</div>
