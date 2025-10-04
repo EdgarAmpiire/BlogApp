@@ -3,13 +3,21 @@
     Articles
   </h1>
 
-  <ul class="space-y-4">
-    <% @articles.each do |article| %>
-      <li>
-        <%= link_to article.title, article, class: "block p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition text-gray-900 font-semibold" %>
-      </li>
-    <% end %>
-  </ul>
+  <% if @articles.any? %>
+    <ul class="space-y-4">
+      <% @articles.each do |article| %>
+      <% unless article.archived? %>
+        <li>
+          <%= link_to article.title, article, class: "block p-4 bg-gray-100 rounded-lg hover:bg-gray-200 transition text-gray-900 font-semibold" %>
+        </li>
+      <% end %>
+      <% end %>
+    </ul>
+  <% else %>
+    <p class="text-gray-500 text-center text-lg py-8">
+      There are no articles yet.
+    </p>
+  <% end %>
 
   <div class="mt-8">
     <%= link_to "New Article", new_article_path, class: "inline-block bg-gray-900 text-white font-semibold px-6 py-3 rounded-lg hover:bg-gray-800 transition" %>
