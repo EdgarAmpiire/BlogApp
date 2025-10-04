@@ -9,6 +9,16 @@
     <%= form.text_area :body, rows: 3, class: "w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700 text-sm" %>
   </div>
 
+
+  <!-- Status field -->
+  <div class="mb-6">
+    <%= form.label :status, class: "block text-gray-700 font-medium mb-1" %>
+    <%= form.select :status, Visible::VALID_STATUSES, 
+        { selected: 'public' }, 
+        class: "w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-700 cursor-pointer" %>
+  </div>
+
+  <!-- Submit Button -->
   <div>
     <%= form.submit "Add Comment", class: "px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 cursor-pointer" %>
   </div>
