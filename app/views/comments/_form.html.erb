@@ -1,25 +1,24 @@
-<%= form_with model: [article, article.comments.build], local: true do |form| %>
+<%= form_with model: [article, article.comments.build], local: true, class: "w-full sm:w-11/12 md:w-10/12 lg:w-8/12 mx-auto" do |form| %>
   <div class="mb-4">
-    <%= form.label :commenter, class: "block text-gray-700 font-medium mb-1" %>
-    <%= form.text_field :commenter, class: "w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700" %>
+    <%= form.label :commenter, class: "block text-gray-700 font-medium mb-1 text-sm sm:text-base" %>
+    <%= form.text_field :commenter, class: "w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700" %>
   </div>
 
   <div class="mb-4">
-    <%= form.label :body, class: "block text-gray-700 font-medium mb-1" %>
-    <%= form.text_area :body, rows: 3, class: "w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700 text-sm" %>
+    <%= form.label :body, class: "block text-gray-700 font-medium mb-1 text-sm sm:text-base" %>
+    <%= form.text_area :body, rows: 3, class: "w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700 text-sm sm:text-base" %>
   </div>
-
 
   <!-- Status field -->
   <div class="mb-6">
-    <%= form.label :status, class: "block text-gray-700 font-medium mb-1" %>
+    <%= form.label :status, class: "block text-gray-700 font-medium mb-1 text-sm sm:text-base" %>
     <%= form.select :status, Visible::VALID_STATUSES, 
         { selected: 'public' }, 
-        class: "w-full p-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-700 cursor-pointer" %>
+        class: "w-full p-2 sm:p-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-gray-700 cursor-pointer text-sm sm:text-base" %>
   </div>
 
   <!-- Submit Button -->
-  <div>
-    <%= form.submit "Add Comment", class: "px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 cursor-pointer" %>
+  <div class="flex justify-end">
+    <%= form.submit "Add Comment", class: "px-4 sm:px-6 py-2 sm:py-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition cursor-pointer text-sm sm:text-base" %>
   </div>
 <% end %>
