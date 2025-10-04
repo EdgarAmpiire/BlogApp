@@ -3,6 +3,15 @@
     Articles
   </h1>
 
+  <!-- Article count -->
+  <p class="text-gray-600 mb-6">
+    Our blog has 
+    <span class="font-semibold text-gray-900">
+      <%= Article.public_count %>
+    </span> 
+    articles and counting!
+  </p>
+
   <% if @articles.any? %>
     <ul class="space-y-4">
       <% @articles.each do |article| %>
