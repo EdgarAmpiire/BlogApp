@@ -1,4 +1,4 @@
-<%= form_with model: [article, article.comments.build], local: true, class: "w-full sm:w-11/12 md:w-10/12 lg:w-8/12 mx-auto" do |form| %>
+<%= form_with model: [article, article.comments.build], local: true, class: "w-full sm:w-11/12 md:w-10/12 lg:w-12/12 mx-auto" do |form| %>
   <div class="mb-4">
     <%= form.label :commenter, class: "block text-gray-700 font-medium mb-1 text-sm sm:text-base" %>
     <%= form.text_field :commenter, class: "w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-700" %>
